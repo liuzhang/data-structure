@@ -26,21 +26,19 @@ typedef struct node {
 } LinkNode, *LinkNodePtr; 
 
 
-LinkNodePtr InintList(LinkNodePtr L)
+Status InintList(LinkNodePtr *L)
 {
-    L = (LinkNodePtr) malloc(sizeof(LinkNode));
+    *L = (LinkNodePtr) malloc(sizeof(LinkNode));
 
-    if (!L) {
+    if (!(*L)) {
         return ERROR;
     }
 
-    L->next = NULL;
+    (*L)->next = NULL;
 
     int i;
 
-    LinkNodePtr p;
-
-    return L;
+    return OK;
 }
 
 Status ListEmpty(LinkNodePtr L)
@@ -147,7 +145,7 @@ int main(int argc, char const *argv[])
 
     int i;
 
-    L = InintList(L);
+    InintList(&L);
 
     //printf("is ListEmpty %d\n", ListEmpty(&L));
 
